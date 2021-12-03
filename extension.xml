@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root version="3.3" >
+	<properties>
+		<name>Feature: Spell Record Actions</name>
+		<version>1.1</version>
+		<loadorder>55</loadorder>
+		<description>
+			<text>Spell Record Actions</text>
+			<website></website>
+			<author>Zarestia</author>
+		</description>
+		<ruleset>
+			<name>3.5E</name>
+		</ruleset>
+		<ruleset>
+			<name>PFRPG</name>
+		</ruleset>
+	</properties>
+
+	<announcement text="3.5E/PFRPG Spell Record Actions - version 1.1 \rby Zarestia, 2021\r---" font="emotefont"/>
+
+	<base>		
+		<!-- Campaign -->
+		<includefile source="campaign/record_spell.xml" />
+		<includefile source="campaign/record_spell_entry.xml" />
+		<includefile source="campaign/template_spell.xml" />
+		
+		<!-- Strings -->
+		<includefile source="strings/sra_strings.xml" />
+		
+		<!-- Scripts -->
+		<script name="SRAManager" file="scripts/manager_sra.lua" />
+		<script name="SpellManager" file="scripts/manager_spell.lua "/>
+	</base>
+</root>

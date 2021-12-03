@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- Char Sheet -->
+	<string name="action_label_actions_effects">Actions / Effects</string>
+	<string name="action_label_add">Add</string>
+	<string name="action_label_add_cast">Cast</string>
+	<string name="action_label_add_damage">Damage</string>
+	<string name="action_label_add_heal">Heal</string>
+	<string name="action_label_add_effect">Effect</string>
+	<string name="action_label_clear">Clear</string>
+	<string name="action_label_parse">Parse</string>
+</root>
