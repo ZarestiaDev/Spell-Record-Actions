@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- Join because of a script override -->
+	<windowclass name="power_action" merge="join">
+		<script file="campaign/scripts/power_action.lua" />
+	</windowclass>
+
+	<!-- Actual new controls -->
+    <windowclass name="power_stats" merge="join">
+		<script file="campaign/scripts/power_main.lua" />
+        <sheetdata>
+            <label_column name="action_label_add">
+				<anchored>
+					<top offset="8" />
+				</anchored>
+				<static textres="action_label_add" />
+			</label_column>
+			
+			<button_text name="action_label_add_cast">
+				<anchored to="source" width="65" height="16">
+					<top anchor="bottom" offset="10" />
+					<left parent="action_label_add" anchor="right" offset="10" />
+				</anchored>
+				<state textres="action_label_add_cast" />
+					<script>
+						function onButtonPress()
+							window.createAction("cast");
+						end
+					</script>
+			</button_text>
+			
+			<button_text name="action_label_add_damage">
+				<anchored to="source" width="60" height="16">
+					<top anchor="bottom" offset="10" />
+					<left parent="action_label_add_cast" anchor="right" offset="15" />
+				</anchored>
+				<state textres="action_label_add_damage" />
+					<script>
+						function onButtonPress()
+							window.createAction("damage");
+						end
+					</script>
+			</button_text>
+			
+			<button_text name="action_label_add_heal">
+				<anchored to="source" width="60" height="16">
+					<top anchor="bottom" offset="10" />
+					<left parent="action_label_add_damage" anchor="right" offset="15" />
+				</anchored>
+				<state textres="action_label_add_heal" />
+					<script>
+						function onButtonPress()
+							window.createAction("heal");
+						end
+					</script>
+			</button_text>
+			
+			<button_text name="action_label_add_effect">
+				<anchored to="source" width="60" height="16">
+					<top anchor="bottom" offset="10" />
+					<left parent="action_label_add_heal" anchor="right" offset="15" />
+				</anchored>
+				<state textres="action_label_add_effect" />
+					<script>
+						function onButtonPress()
+							window.createAction("effect");
+						end
+					</script>
+			</button_text>
+			
+			<button_text name="action_label_clear">
+				<anchored to="source" width="60" height="16">
+					<top anchor="bottom" offset="10" />
+					<right />
+				</anchored>
+				<state textres="action_label_clear" />
+					<script>
+						function onButtonPress()
+							local nodeActions = window.getDatabaseNode().createChild("actions");
+							for k, v in pairs(nodeActions.getChildren()) do
+								v.delete();
+							end
+						end
+					</script>
+			</button_text>
+			
+			<button_text name="action_label_parse">
+				<anchored to="source" width="60" height="16">
+					<top anchor="bottom" offset="10" />
+					<right parent="action_label_clear" anchor="left" offset="-15" />
+				</anchored>
+				<state textres="action_label_parse" />
+					<script>
+						function onButtonPress()
+							local nodePower = window.getDatabaseNode();
+							PowerManager.parsePCPower(nodePower);
+						end
+					</script>
+			</button_text>
+		
+			<!-- actions/effects list section -->
+			<header_column name="actionseffects_label">
+				<anchored>
+					<top parent="action_label_add_cast" />
+				</anchored>
+				<static textres="action_label_actions_effects"/>
+				<center />
+			</header_column>
+			
+			<list_text name="actionlist">
+				<anchored>
+					<top parent="actionseffects_label" anchor="bottom" relation="relative" offset="5" />
+					<left />
+					<right />
+				</anchored>	
+				<noscroll />
+				<datasource>.actions</datasource>
+				<class>power_action</class>
+			</list_text>
+        </sheetdata>
+    </windowclass>
+</root>

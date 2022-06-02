@@ -3,7 +3,7 @@
 <root version="3.3" >
 	<properties>
 		<name>Feature: Spell Record Actions</name>
-		<version>1.1</version>
+		<version>2.0</version>
 		<loadorder>55</loadorder>
 		<description>
 			<text>Spell Record Actions</text>
@@ -16,21 +16,25 @@
 		<ruleset>
 			<name>PFRPG</name>
 		</ruleset>
+		<ruleset>
+			<name>5E</name>
+		</ruleset>
 	</properties>
 
-	<announcement text="3.5E/PFRPG Spell Record Actions - version 1.1 \rby Zarestia, 2021\r---" font="emotefont"/>
+	<announcement text="3.5E/PFRPG/5E Spell Record Actions - version 2.0 \rby Zarestia, 2022\r---" font="emotefont"/>
 
 	<base>		
 		<!-- Campaign -->
-		<includefile source="campaign/record_spell.xml" />
-		<includefile source="campaign/record_spell_entry.xml" />
-		<includefile source="campaign/template_spell.xml" />
+		<includefile source="campaign/record_spell.xml" ruleset="3.5E|PFRPG"/>
+		<includefile source="campaign/record_spell_entry.xml" ruleset="3.5E|PFRPG"/>
+		<includefile source="campaign/template_spell.xml" ruleset="3.5E|PFRPG"/>
+		<includefile source="campaign/record_power.xml" ruleset="5E" />
 		
 		<!-- Strings -->
 		<includefile source="strings/sra_strings.xml" />
 		
 		<!-- Scripts -->
-		<script name="SRAManager" file="scripts/manager_sra.lua" />
-		<script name="SpellManager" file="scripts/manager_spell.lua "/>
+		<script name="SRAManager" file="scripts/manager_sra.lua" ruleset="3.5E|PFRPG"/>
+		<script name="SpellManager" file="scripts/manager_spell.lua" ruleset="3.5E|PFRPG"/>
 	</base>
 </root>
