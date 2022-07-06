@@ -865,19 +865,16 @@ function onSpellAction(draginfo, nodeAction, sSubRoll)
 end
 
 function getActionAbilityBonus(nodeAction)
-	-- Zarestia adding if clause for safety
-	local sNodeName = nodeAction.getNodeName();
-	if string.find(sNodeName, "charsheet") or string.find(sNodeName, "npc") then
-		local nodeSpellClass = nodeAction.getChild(".......");
-		local nodeCreature = nodeSpellClass.getChild("...");
+	-- Zarestia adding safety
+	local nodeSpellClass = nodeAction.getChild(".......");
 
-		local sAbility = DB.getValue(nodeSpellClass, "dc.ability", "");
-
-		local rActor = ActorManager.resolveActor(nodeCreature);
-		return ActorManager35E.getAbilityBonus(rActor, sAbility);
-	else
+	if not nodeSpellClass then
 		return 0;
 	end
+	local nodeCreature = nodeSpellClass.getChild("...");
+	local sAbility = DB.getValue(nodeSpellClass, "dc.ability", "");
+	local rActor = ActorManager.resolveActor(nodeCreature);
+	return ActorManager35E.getAbilityBonus(rActor, sAbility);
 end
 
 function getActionCLC(nodeAction)
