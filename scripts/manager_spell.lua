@@ -207,8 +207,8 @@ function parseSpell(nodeSpell)
 	
 	-- Get the description minos some problem characters and in lowercase
 	local sDesc = string.lower(DB.getValue(nodeSpell, "description", ""));
-	sDesc = string.gsub(sDesc, "’", "'");
-	sDesc = string.gsub(sDesc, "–", "-");
+	sDesc = string.gsub(sDesc, "ï¿½", "'");
+	sDesc = string.gsub(sDesc, "ï¿½", "-");
 	
 	local aWords = StringManager.parseWords(sDesc);
 	
@@ -866,8 +866,8 @@ end
 
 function getActionAbilityBonus(nodeAction)
 	-- Zarestia adding if clause for safety
-	local sNodeName = nodeAction.getNodeName()
-	if string.find(sNodeName, "charsheet") then
+	local sNodeName = nodeAction.getNodeName();
+	if string.find(sNodeName, "charsheet") or string.find(sNodeName, "npc") then
 		local nodeSpellClass = nodeAction.getChild(".......");
 		local nodeCreature = nodeSpellClass.getChild("...");
 
