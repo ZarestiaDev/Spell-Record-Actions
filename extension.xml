@@ -3,8 +3,8 @@
 <root version="3.3" >
 	<properties>
 		<name>Feature: Spell Record Actions</name>
-		<version>2.1</version>
-		<loadorder>55</loadorder>
+		<version>2.2</version>
+		<loadorder>34</loadorder>
 		<description>
 			<text>Spell Record Actions</text>
 			<website></website>
@@ -21,7 +21,9 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="3.5E/PFRPG/5E Spell Record Actions - version 2.1 \rby Zarestia, 2022\r---" font="emotefont"/>
+	<!-- Kelrugem Exntended Automation: 35 -->
+
+	<announcement text="3.5E/PFRPG/5E Spell Record Actions - version 2.2 \rby Zarestia, 2022\r---" font="emotefont"/>
 
 	<base>		
 		<!-- Campaign -->
