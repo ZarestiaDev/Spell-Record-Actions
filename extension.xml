@@ -3,7 +3,7 @@
 <root version="3.3" >
 	<properties>
 		<name>Feature: Spell Record Actions</name>
-		<version>2.2</version>
+		<version>2.3</version>
 		<loadorder>34</loadorder>
 		<description>
 			<text>Spell Record Actions</text>
@@ -21,9 +21,9 @@
 		</ruleset>
 	</properties>
 
-	<!-- Kelrugem Exntended Automation: 35 -->
+	<!-- Kelrugem Extended Automation: 35 -->
 
-	<announcement text="3.5E/PFRPG/5E Spell Record Actions - version 2.2 \rby Zarestia, 2022\r---" font="emotefont"/>
+	<announcement text="https://forge.fantasygrounds.com/shop/items/373/view \n3.5E/PFRPG/5E Spell Record Actions - version 2.3 \rby Zarestia, 2022" font="emotefont" icon="sra_icon" />
 
 	<base>		
 		<!-- Campaign -->
@@ -38,5 +38,8 @@
 		<!-- Scripts -->
 		<script name="SRAManager" file="scripts/manager_sra.lua" ruleset="3.5E|PFRPG"/>
 		<script name="SpellManager" file="scripts/manager_spell.lua" ruleset="3.5E|PFRPG"/>
+
+		<!-- Icon -->
+		<icon name="sra_icon" file="graphics/sra_icon.png" />
 	</base>
 </root>

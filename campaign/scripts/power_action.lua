@@ -12,8 +12,8 @@ function onInit()
 	local node = getDatabaseNode();
 	
 	-- Zarestia adding safety clause for checking whether the spell is on a charsheet
-	local sNodeName = node.getNodeName()
-	if string.match(sNodeName, "charsheet") then
+	local sNodeName = node.getNodeName();
+	if string.match(sNodeName, "charsheet") and windowlist.getName() == "actions" then
 		windowlist.setOrder(node);
 	end
 
