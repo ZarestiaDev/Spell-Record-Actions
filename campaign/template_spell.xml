@@ -6,9 +6,7 @@
 -->
 
 <root>
-
 <!-- changing right offset -->
-
 	<template name="button_poweractioneditor">
 		<buttoncontrol>
 			<anchored width="20" height="20">

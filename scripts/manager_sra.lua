@@ -7,27 +7,27 @@ function addSRA(nodeSpell)
 	local sSpellDur = DB.getValue(nodeSpell, "duration", "");
 	local aDurWords = StringManager.parseWords(sSpellDur);
 	
-	i = 1;
+	local i = 1;
 	if StringManager.isNumberString(aDurWords[i]) then
 	i = i + 1;
 		if StringManager.isWord(aDurWords[i], { "round", "rounds", "min", "minute", "minutes", "hour", "hours", "day", "days"}) then
-			nodeActions = nodeSpell.createChild("actions");
+			local nodeActions = nodeSpell.createChild("actions");
 			if not nodeActions then
 				return nil;
 			end
 			
-			nodeAction = nodeActions.createChild();
+			local nodeAction = nodeActions.createChild();
 			if not nodeAction then
 				return nil;
 			end
 			
 			DB.setValue(nodeAction, "type", "string", "effect");
-			changeSRA(nodeSpell);
+			changeSRA(nodeSpell, nodeAction);
 		end
 	end
 end
 
-function changeSRA(nodeSpell)
+function changeSRA(nodeSpell, nodeAction)
 	local sEffect = DB.getValue(nodeSpell, "effect", ""):lower();
 	local sRange = DB.getValue(nodeSpell, "range", ""):lower();
 	local sName = DB.getValue(nodeSpell, "name", "");
