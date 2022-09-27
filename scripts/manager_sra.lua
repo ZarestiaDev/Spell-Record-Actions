@@ -1,8 +1,3 @@
--- 
--- Please see the license.html file included with this distribution for 
--- attribution and copyright information.
---
-
 function addSRA(nodeSpell)
 	local sSpellDur = DB.getValue(nodeSpell, "duration", "");
 	local aDurWords = StringManager.parseWords(sSpellDur);

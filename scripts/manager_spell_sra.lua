@@ -1,6 +1,11 @@
 local getActionAbilityBonusOriginal;
 
 function onInit()
+    -- check first if we want to rather use Kelrugem's SpellManager implementation
+    if CompManagerSRA.EXTENSIONS["Full OverlayPackage"] then
+        return;
+    end
+
 	getActionAbilityBonusOriginal = SpellManager.getActionAbilityBonus;
 	SpellManager.getActionAbilityBonus = getActionAbilityBonus;
 end
