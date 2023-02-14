@@ -6,11 +6,6 @@
 -->
 
 <root>
-	<!-- Join because of a script override -->
-	<windowclass name="power_action" merge="join">
-		<script file="campaign/scripts/power_action.lua" />
-	</windowclass>
-
 	<!-- Actual new controls -->
     <windowclass name="power_stats" merge="join">
 		<script file="campaign/scripts/power_main.lua" />
@@ -22,87 +17,80 @@
 				<static textres="action_label_add" />
 			</label_column>
 			
-			<button_text name="action_label_add_cast">
-				<anchored to="source" width="65" height="16">
-					<top anchor="bottom" offset="10" />
+			<addspellaction_button5E name="action_label_add_cast">
+				<anchored>
 					<left parent="action_label_add" anchor="right" offset="10" />
 				</anchored>
 				<state textres="action_label_add_cast" />
 					<script>
 						function onButtonPress()
-							window.createAction("cast");
+							PowerManagerCore.createPowerAction(window, "cast");
 						end
 					</script>
-			</button_text>
+			</addspellaction_button5E>
 			
-			<button_text name="action_label_add_damage">
-				<anchored to="source" width="60" height="16">
-					<top anchor="bottom" offset="10" />
+			<addspellaction_button5E name="action_label_add_damage">
+				<anchored>
 					<left parent="action_label_add_cast" anchor="right" offset="15" />
 				</anchored>
 				<state textres="action_label_add_damage" />
 					<script>
 						function onButtonPress()
-							window.createAction("damage");
+							PowerManagerCore.createPowerAction(window, "damage");
 						end
 					</script>
-			</button_text>
+			</addspellaction_button5E>
 			
-			<button_text name="action_label_add_heal">
-				<anchored to="source" width="60" height="16">
-					<top anchor="bottom" offset="10" />
+			<addspellaction_button5E name="action_label_add_heal">
+				<anchored>
 					<left parent="action_label_add_damage" anchor="right" offset="15" />
 				</anchored>
 				<state textres="action_label_add_heal" />
 					<script>
 						function onButtonPress()
-							window.createAction("heal");
+							PowerManagerCore.createPowerAction(window, "heal");
 						end
 					</script>
-			</button_text>
+			</addspellaction_button5E>
 			
-			<button_text name="action_label_add_effect">
-				<anchored to="source" width="60" height="16">
-					<top anchor="bottom" offset="10" />
+			<addspellaction_button5E name="action_label_add_effect">
+				<anchored>
 					<left parent="action_label_add_heal" anchor="right" offset="15" />
 				</anchored>
 				<state textres="action_label_add_effect" />
 					<script>
 						function onButtonPress()
-							window.createAction("effect");
+							PowerManagerCore.createPowerAction(window, "effect");
 						end
 					</script>
-			</button_text>
+			</addspellaction_button5E>
 			
-			<button_text name="action_label_clear">
-				<anchored to="source" width="60" height="16">
-					<top anchor="bottom" offset="10" />
+			<addspellaction_button5E name="action_label_clear">
+				<anchored>
 					<right />
 				</anchored>
 				<state textres="action_label_clear" />
 					<script>
 						function onButtonPress()
-							local nodeActions = window.getDatabaseNode().createChild("actions");
-							for k, v in pairs(nodeActions.getChildren()) do
-								v.delete();
+							local nodeActions = DB.createChild(window.getDatabaseNode(), "actions");
+							for _,vAction in ipairs(DB.getChildList(nodeActions)) do
+								vAction.delete();
 							end
 						end
 					</script>
-			</button_text>
+			</addspellaction_button5E>
 			
-			<button_text name="action_label_parse">
-				<anchored to="source" width="60" height="16">
-					<top anchor="bottom" offset="10" />
+			<addspellaction_button5E name="action_label_parse">
+				<anchored>
 					<right parent="action_label_clear" anchor="left" offset="-15" />
 				</anchored>
 				<state textres="action_label_parse" />
 					<script>
 						function onButtonPress()
-							local nodePower = window.getDatabaseNode();
-							PowerManager.parsePCPower(nodePower);
+							PowerManager.parsePCPower(window.getDatabaseNode());
 						end
 					</script>
-			</button_text>
+			</addspellaction_button5E>
 		
 			<!-- actions/effects list section -->
 			<header_column name="actionseffects_label">
@@ -113,16 +101,18 @@
 				<center />
 			</header_column>
 			
-			<list_text name="actionlist">
+			<button_iedit name="actions_iedit">
+				<anchored to="actionseffects_label" position="righthigh" offset="-13,0" />
+				<edittarget>actions</edittarget>
+			</button_iedit>
+			
+			<list_poweraction name="actions">
 				<anchored>
 					<top parent="actionseffects_label" anchor="bottom" relation="relative" offset="5" />
 					<left />
 					<right />
-				</anchored>	
-				<noscroll />
-				<datasource>.actions</datasource>
-				<class>power_action</class>
-			</list_text>
+				</anchored>
+			</list_poweraction>
         </sheetdata>
     </windowclass>
 </root>
