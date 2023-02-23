@@ -11,12 +11,12 @@ function onInit()
 end
 
 function getActionAbilityBonus(nodeAction)
-	local nodeSpellClass = nodeAction.getChild(".......");
-
+	local nodeSpellClass = DB.getChild(nodeAction, ".......");
 	if not nodeSpellClass then
 		return 0;
 	end
-	local nodeCreature = nodeSpellClass.getChild("...");
+
+	local nodeCreature = DB.getChild(nodeSpellClass, "...");
 	local sAbility = DB.getValue(nodeSpellClass, "dc.ability", "");
 	local rActor = ActorManager.resolveActor(nodeCreature);
 	return ActorManager35E.getAbilityBonus(rActor, sAbility);
