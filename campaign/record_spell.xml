@@ -146,12 +146,10 @@
 					<left />
 					<right />
 				</anchored>
-			</list_poweraction>
-				</anchored>	
 				<noscroll />
 				<datasource>.actions</datasource>
 				<class>power_action</class>
-			</list_text>
+			</list_poweraction>
 		</sheetdata>
 	</windowclass>
 </root>
