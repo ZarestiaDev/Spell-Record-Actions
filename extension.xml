@@ -27,7 +27,6 @@
 	<base>		
 		<!-- Campaign -->
 		<includefile source="campaign/record_spell.xml" ruleset="3.5E|PFRPG"/>
-		<includefile source="campaign/record_spell_entry.xml" ruleset="3.5E|PFRPG"/>
 		<includefile source="campaign/record_power.xml" ruleset="5E" />
 		<includefile source="campaign/template_record.xml" />
 		
