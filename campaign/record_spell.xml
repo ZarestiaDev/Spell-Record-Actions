@@ -6,7 +6,7 @@
 -->
 
 <root>
-<windowclass name="spelldesc_stats" merge="join">
+	<windowclass name="spelldesc_main" merge="join">
 		<margins control="0,0,0,15" />
 		<script>
 			function onInit()
@@ -172,7 +172,7 @@
 				</anchored>	
 				<noscroll />
 				<datasource>.actions</datasource>
-				<class>spell_action</class>
+				<class>power_action</class>
 			</list_text>
 		</sheetdata>
 	</windowclass>
