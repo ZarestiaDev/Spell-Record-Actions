@@ -6,12 +6,12 @@ function addSRA(nodeSpell)
 	if StringManager.isNumberString(aDurWords[i]) then
 	i = i + 1;
 		if StringManager.isWord(aDurWords[i], { "round", "rounds", "min", "minute", "minutes", "hour", "hours", "day", "days"}) then
-			local nodeActions = nodeSpell.createChild("actions");
+			local nodeActions = DB.createChild(nodeSpell, "actions");
 			if not nodeActions then
 				return nil;
 			end
 			
-			local nodeAction = nodeActions.createChild();
+			local nodeAction = DB.createChild(nodeActions);
 			if not nodeAction then
 				return nil;
 			end

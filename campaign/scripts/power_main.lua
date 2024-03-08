@@ -14,12 +14,6 @@ function onSummaryChanged()
     end
 end
 
-function updateControl(sControl, bReadOnly, bForceHide)
-	if super and super.updateControl then
-        super.updateControl();
-    end
-end
-
 function update()
 	if super and super.update then
         super.update();
@@ -27,6 +21,7 @@ function update()
 
 	-- Zarestia adding handling for new labels and buttons
 	local bReadOnlyNew = WindowManager.getReadOnlyState(getDatabaseNode());
+	
 	action_label_add.setVisible(not bReadOnlyNew);
 	action_label_add_cast.setVisible(not bReadOnlyNew);
 	action_label_add_damage.setVisible(not bReadOnlyNew);
@@ -34,19 +29,9 @@ function update()
 	action_label_add_effect.setVisible(not bReadOnlyNew);
 	action_label_clear.setVisible(not bReadOnlyNew);
 	action_label_parse.setVisible(not bReadOnlyNew);
-	actionlist.update();
-end
+	actions_iedit.setVisible(not bReadOnlyNew);
 
--- Zarestia adding function for Spell Record Actions
-function createAction(sType)
-	local nodePower = getDatabaseNode();
-	if nodePower then
-		local nodeActions = nodePower.createChild("actions");
-		if nodeActions then
-			local nodeAction = nodeActions.createChild();
-			if nodeAction then
-				DB.setValue(nodeAction, "type", "string", sType);
-			end
-		end
+	if bReadOnlyNew then
+		actions_iedit.setValue(0);
 	end
 end
