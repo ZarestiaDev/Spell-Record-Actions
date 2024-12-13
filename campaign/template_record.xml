@@ -13,12 +13,4 @@
 			</anchored>
 		</button_text>
 	</template>
-
-	<template name="addspellaction_button5E">
-		<button_text>
-			<anchored width="60" height="16">
-				<top parent="source" anchor="bottom" offset="10" />
-			</anchored>
-		</button_text>
-	</template>
 </root>

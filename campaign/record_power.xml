@@ -10,14 +10,14 @@
     <windowclass name="power_main" merge="join">
 		<script file="campaign/scripts/power_main.lua" />
         <sheetdata>
-            <label_column name="action_label_add">
+            <label_content_column name="action_label_add">
 				<anchored>
 					<top offset="8" />
 				</anchored>
 				<static textres="action_label_add" />
-			</label_column>
+			</label_content_column>
 			
-			<addspellaction_button5E name="action_label_add_cast">
+			<addspellaction_button name="action_label_add_cast">
 				<anchored>
 					<left parent="action_label_add" anchor="right" offset="10" />
 				</anchored>
@@ -27,9 +27,9 @@
 							PowerManagerCore.createPowerAction(window, "cast");
 						end
 					</script>
-			</addspellaction_button5E>
+			</addspellaction_button>
 			
-			<addspellaction_button5E name="action_label_add_damage">
+			<addspellaction_button name="action_label_add_damage">
 				<anchored>
 					<left parent="action_label_add_cast" anchor="right" offset="15" />
 				</anchored>
@@ -39,9 +39,9 @@
 							PowerManagerCore.createPowerAction(window, "damage");
 						end
 					</script>
-			</addspellaction_button5E>
+			</addspellaction_button>
 			
-			<addspellaction_button5E name="action_label_add_heal">
+			<addspellaction_button name="action_label_add_heal">
 				<anchored>
 					<left parent="action_label_add_damage" anchor="right" offset="15" />
 				</anchored>
@@ -51,9 +51,9 @@
 							PowerManagerCore.createPowerAction(window, "heal");
 						end
 					</script>
-			</addspellaction_button5E>
+			</addspellaction_button>
 			
-			<addspellaction_button5E name="action_label_add_effect">
+			<addspellaction_button name="action_label_add_effect">
 				<anchored>
 					<left parent="action_label_add_heal" anchor="right" offset="15" />
 				</anchored>
@@ -63,9 +63,9 @@
 							PowerManagerCore.createPowerAction(window, "effect");
 						end
 					</script>
-			</addspellaction_button5E>
+			</addspellaction_button>
 			
-			<addspellaction_button5E name="action_label_clear">
+			<addspellaction_button name="action_label_clear">
 				<anchored>
 					<right />
 				</anchored>
@@ -78,9 +78,9 @@
 							end
 						end
 					</script>
-			</addspellaction_button5E>
+			</addspellaction_button>
 			
-			<addspellaction_button5E name="action_label_parse">
+			<addspellaction_button name="action_label_parse">
 				<anchored>
 					<right parent="action_label_clear" anchor="left" offset="-15" />
 				</anchored>
@@ -90,7 +90,7 @@
 							PowerManager.parsePCPower(window.getDatabaseNode());
 						end
 					</script>
-			</addspellaction_button5E>
+			</addspellaction_button>
 		
 			<!-- actions/effects list section -->
 			<header_column name="actionseffects_label">
