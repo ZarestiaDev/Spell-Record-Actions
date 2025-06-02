@@ -48,12 +48,13 @@
 			end
 		</script>
 		<sheetdata>
-			<label_column name="action_label_add">
+			<label name="action_label_add">
 				<anchored>
-					<top offset="8" />
+					<left />
+					<top parent="description" anchor="bottom" offset="10" />
 				</anchored>
 				<static textres="action_label_add" />
-			</label_column>
+			</label>
 
 			<addspellaction_button name="action_label_add_cast">
 				<anchored>
